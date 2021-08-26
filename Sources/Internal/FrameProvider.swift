@@ -448,7 +448,13 @@ final class FrameProvider {
   // days in each month. The returned value will be `0` if
   // `monthsLayout.pinDaysOfWeekToTop == true`.
   private func heightOfDaysOfTheWeekRowInMonth() -> CGFloat {
-    monthsLayout.pinDaysOfWeekToTop ? 0 : (daySize.height + content.verticalDayMargin)
+    if monthsLayout.pinDaysOfWeekToTop {
+      return 0
+    } else if monthsLayout.hideDaysOfWeek {
+      return content.verticalDayMargin
+    } else {
+      return daySize.height + content.verticalDayMargin
+    }
   }
 
 }

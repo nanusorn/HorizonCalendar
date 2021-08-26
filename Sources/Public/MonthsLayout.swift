@@ -45,6 +45,13 @@ public enum MonthsLayout {
     case .horizontal: return false
     }
   }
+  
+  var hideDaysOfWeek: Bool {
+    switch self {
+    case .vertical(let options): return options.daysOfWeekOptions == .hide
+    case .horizontal: return false
+    }
+  }
 
   var alwaysShowCompleteBoundaryMonths: Bool {
     switch self {
@@ -78,7 +85,7 @@ extension MonthsLayout {
     deprecated,
     message: "Use .vertical(options: VerticalMonthsLayoutOptions) instead. This will be removed in a future major release.")
   public static func vertical(pinDaysOfWeekToTop: Bool) -> Self {
-    let options = VerticalMonthsLayoutOptions(pinDaysOfWeekToTop: pinDaysOfWeekToTop)
+    let options = VerticalMonthsLayoutOptions(daysOfWeekOptions: pinDaysOfWeekToTop ? .pinToTop : .eachMonth)
     return .vertical(options: options)
   }
 
@@ -126,19 +133,42 @@ public struct VerticalMonthsLayoutOptions: Equatable {
   ///   - alwaysShowCompleteBoundaryMonths: Whether the calendar will always show complete months, even if the visible
   ///   date range does not start on the first date or end on the last date of a month. The default value is `true`.
   public init(pinDaysOfWeekToTop: Bool = false, alwaysShowCompleteBoundaryMonths: Bool = true) {
-    self.pinDaysOfWeekToTop = pinDaysOfWeekToTop
+    self.daysOfWeekOptions = pinDaysOfWeekToTop ? .pinToTop : .eachMonth
+    self.alwaysShowCompleteBoundaryMonths = alwaysShowCompleteBoundaryMonths
+  }
+  
+  /// leave a comment
+  public init(daysOfWeekOptions: DaysOfWeekOptions, alwaysShowCompleteBoundaryMonths: Bool = true) {
+    self.daysOfWeekOptions = daysOfWeekOptions
     self.alwaysShowCompleteBoundaryMonths = alwaysShowCompleteBoundaryMonths
   }
 
   // MARK: Public
 
-  /// Whether the days of the week will appear once, pinned at the top, or repeatedly in each month.
-  public let pinDaysOfWeekToTop: Bool
-
   /// Whether the calendar will always show complete months at the calendar's boundaries, even if the visible date range does not start
   /// on the first date or end on the last date of a month.
   public let alwaysShowCompleteBoundaryMonths: Bool
+  
+  /// leave a comment
+  public let daysOfWeekOptions: DaysOfWeekOptions
 
+}
+
+public extension VerticalMonthsLayoutOptions {
+    
+    /// Whether the days of the week will appear once, pinned at the top, or repeatedly in each month.
+    var pinDaysOfWeekToTop: Bool {
+        daysOfWeekOptions == .pinToTop
+    }
+    
+    /// leave a comment
+    var hideDaysOfWeekSection: Bool {
+        daysOfWeekOptions == .hide || daysOfWeekOptions == .pinToTop
+    }
+    
+    enum DaysOfWeekOptions {
+        case hide, pinToTop, eachMonth
+    }
 }
 
 // MARK: - HorizontalMonthsLayoutOptions

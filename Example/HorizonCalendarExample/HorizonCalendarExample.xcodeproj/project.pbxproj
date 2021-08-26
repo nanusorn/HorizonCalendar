@@ -23,6 +23,7 @@
 		93A7258E24A1F26C00B4F08F /* PartialMonthVisibilityDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A7258D24A1F26C00B4F08F /* PartialMonthVisibilityDemoViewController.swift */; };
 		93AF5545248DCC8900BDB0FF /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF5544248DCC8900BDB0FF /* DayRangeIndicatorView.swift */; };
 		93AF5549248DCF0700BDB0FF /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF5548248DCF0700BDB0FF /* DayView.swift */; };
+		C1E65B6226D7FF7600EAC657 /* HideWeekDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E65B6126D7FF7600EAC657 /* HideWeekDaysViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +58,7 @@
 		93A7258D24A1F26C00B4F08F /* PartialMonthVisibilityDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialMonthVisibilityDemoViewController.swift; sourceTree = "<group>"; };
 		93AF5544248DCC8900BDB0FF /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
 		93AF5548248DCF0700BDB0FF /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		C1E65B6126D7FF7600EAC657 /* HideWeekDaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideWeekDaysViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		9381769D249B79CB00E18FA3 /* Demo View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C1E65B6126D7FF7600EAC657 /* HideWeekDaysViewController.swift */,
 				938176A6249B85CE00E18FA3 /* DemoViewController.swift */,
 				939E696E2484CD8E00A8BCC7 /* SingleDaySelectionDemoViewController.swift */,
 				938176A0249B7CE600E18FA3 /* DayRangeSelectionDemoViewController.swift */,
@@ -202,6 +205,7 @@
 				938176A3249B7F0800E18FA3 /* SelectedDayTooltipDemoViewController.swift in Sources */,
 				938176A1249B7CE600E18FA3 /* DayRangeSelectionDemoViewController.swift in Sources */,
 				9381769C249B74BB00E18FA3 /* DemoPickerViewController.swift in Sources */,
+				C1E65B6226D7FF7600EAC657 /* HideWeekDaysViewController.swift in Sources */,
 				939853522498992E0022A3A1 /* TooltipView.swift in Sources */,
 				938176A7249B85CE00E18FA3 /* DemoViewController.swift in Sources */,
 				93AF5549248DCF0700BDB0FF /* DayView.swift in Sources */,

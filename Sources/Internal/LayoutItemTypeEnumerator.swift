@@ -94,7 +94,7 @@ final class LayoutItemTypeEnumerator {
 
     case .day(let day):
       if day.day == 1 || day == dayRange.lowerBound {
-        if case .vertical(let options) = monthsLayout, options.pinDaysOfWeekToTop {
+        if case .vertical(let options) = monthsLayout, options.hideDaysOfWeekSection {
           return .monthHeader(day.month)
         } else {
           return .dayOfWeekInMonth(position: .last, month: day.month)
@@ -108,7 +108,7 @@ final class LayoutItemTypeEnumerator {
   private func nextItemType(from itemType: LayoutItem.ItemType) -> LayoutItem.ItemType {
     switch itemType {
     case .monthHeader(let month):
-      if case .vertical(let options) = monthsLayout, options.pinDaysOfWeekToTop {
+      if case .vertical(let options) = monthsLayout, options.hideDaysOfWeekSection {
         return .day(firstDayInRange(in: month))
       } else {
         return .dayOfWeekInMonth(position: .first, month: month)
