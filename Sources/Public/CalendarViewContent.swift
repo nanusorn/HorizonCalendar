@@ -111,6 +111,11 @@ public final class CalendarViewContent {
     self.backgroundColor = backgroundColor
     return self
   }
+  
+  public func withWeekDayHeight(_ height: CGFloat) -> CalendarViewContent {
+    self.daysOfTheWeekHeight = height
+    return self
+  }
 
   /// Configures the amount of spacing, in points, between months. The default value is `0`.
   ///
@@ -320,6 +325,7 @@ public final class CalendarViewContent {
   private(set) var verticalDayMargin: CGFloat = 0
   private(set) var horizontalDayMargin: CGFloat = 0
   private(set) var daysOfTheWeekRowSeparatorOptions: DaysOfTheWeekRowSeparatorOptions?
+  private(set) var daysOfTheWeekHeight: CGFloat?
 
   // TODO(BK): Make all item provider closures private(set) after legacy `CalendarItem` is removed.
   var monthHeaderItemModelProvider: (Month) -> InternalAnyCalendarItemModel

@@ -208,7 +208,7 @@ final class FrameProvider {
   {
     let x = minXOfItem(at: dayOfWeekPosition, minXOfContainingRow: layoutMargins.leading)
     let y = layoutMargins.top + yContentOffset
-    return CGRect(origin: CGPoint(x: x, y: y), size: daySize)
+    return CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: daySize.width, height: content.daysOfTheWeekHeight ?? daySize.height))
   }
 
   func frameOfPinnedDaysOfWeekRowBackground(yContentOffset: CGFloat) -> CGRect {
@@ -216,7 +216,7 @@ final class FrameProvider {
       x: layoutMargins.leading,
       y: layoutMargins.top + yContentOffset,
       width: monthWidth,
-      height: daySize.height)
+      height: content.daysOfTheWeekHeight ?? daySize.height)
   }
 
   func frameOfPinnedDaysOfWeekRowSeparator(
